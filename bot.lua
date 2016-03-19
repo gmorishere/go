@@ -5,36 +5,36 @@ URL = require('socket.url')
 JSON = require('dkjson')
 HTTPS = require('ssl.https')
 ----config----
-local bot_api_key = ""
+local bot_api_key = "171824742:AAEGxtJ-cywOHGPas4KscRYwfok4Be6aW2w"
 local BASE_URL = "https://api.telegram.org/bot"..bot_api_key
 local BASE_FOLDER = ""
 local start = [[HI
-`/bold text`
+`/b text`
 return *bold* text
 
-`/italic text`
+`/i text`
 return _italic_ text
 
-`/link url text`
+`/l url text`
 markdown link
 
-`/code text`
+`/c text`
 return `code` text
 
 
 *-channel*
 *add bot to a channel then use this commands*
 
-`/boldch @channelusername text`
+`/bch @channelusername text`
 send *bold* text to a channel
 
-`/italicch @channelusername text`
+`/ich @channelusername text`
 send _italic_ text to a channel
 
-`/linkch @channelusername url text`
+`/lch @channelusername url text`
 send markdown link to a channel
 
-`/codech @channelusername text`
+`/cch @channelusername text`
 send `code` text to a channel
 
 
@@ -46,7 +46,8 @@ _just send a sticker_
 *photo to sticker*
 _just send a photo_
 
-[Source](https://github.com/pAyDaAr/lua-api-bot) ;-)
+
+[🎮 GameOne Channel 🎮](https://telegram.me/gameonech) ;-)
 ]] 
 
 -------
@@ -205,7 +206,7 @@ function bot_run()
 
 	bot = bot.result
 
-	local bot_info = "Username = @"..bot.username.."\nName = "..bot.first_name.."\nId = "..bot.id.." \nbased on linux-file-manager :D\nthx to @imandaneshi\neditor: @unfriendly"
+	local bot_info = "Username = @"..bot.username.."\nName = "..bot.first_name.."\nId = "..bot.id.." \nGameOnePirvateBot For Managing Channel \nEditor:RyanGmorr \nMainAdmin: @Amirhosein11a"
 
 	print(bot_info)
 
@@ -245,46 +246,46 @@ function msg_processor(msg)
 
   if msg.text then return end
 
-  elseif msg.text:match("^/bold (.*)") then
-	local matches = { string.match(msg.text, "^/bold (.*)") }
+  elseif msg.text:match("^/b (.*)") then
+	local matches = { string.match(msg.text, "^/b (.*)") }
 	local text = '*'..matches[1]..'*'
   sendMessage(msg.chat.id, text, true, false, true)
 
-  elseif msg.text:match("^/boldch (.*) (.*)") then
-	local matches = { string.match(msg.text, "^/boldch (.*) (.*)") }
+  elseif msg.text:match("^/bch (.*) (.*)") then
+	local matches = { string.match(msg.text, "^/bch (.*) (.*)") }
 	local text = '*'..matches[2]..'*'
 	local channel = matches[1]
 	sendMessage(channel, text, true, false, true)
 
-  elseif msg.text:match("^/italic (.*)") then
-	local matches = { string.match(msg.text, "^/italic (.*)") }
+  elseif msg.text:match("^/i (.*)") then
+	local matches = { string.match(msg.text, "^/i (.*)") }
 	local text = '_'..matches[1]..'_'
 	sendMessage(msg.chat.id, text, true, false, true)
 
- elseif msg.text:match("^/italicch (.*) (.*)") then
-	local matches = { string.match(msg.text, "^/italicch (.*) (.*)") }
+ elseif msg.text:match("^/ich (.*) (.*)") then
+	local matches = { string.match(msg.text, "^/ich (.*) (.*)") }
 	local text = '_'..matches[2]..'_'
 	local channel = matches[1]
 	sendMessage(channel, text, true, false, true)
 
- elseif msg.text:match("^/link (.*) (.*)") then
- local matches = { string.match(msg.text, "^/link (.*) (.*)") }
+ elseif msg.text:match("^/l (.*) (.*)") then
+ local matches = { string.match(msg.text, "^/l (.*) (.*)") }
  local text = '['..matches[2]..']('..matches[1]..')'
  sendMessage(msg.chat.id, text, true, false, true)
 
-elseif msg.text:match("^/linkch (.*) (.*) (.*)") then
- local matches = { string.match(msg.text, "^/linkch (.*) (.*) (.*)") }
+elseif msg.text:match("^/lch (.*) (.*) (.*)") then
+ local matches = { string.match(msg.text, "^/lch (.*) (.*) (.*)") }
  local text = '['..matches[3]..']('..matches[2]..')'
  local channel = matches[1]
  sendMessage(channel, text, true, false, true)
 
- elseif msg.text:match("^/code (.*)") then
- local matches = { string.match(msg.text, "^/code (.*)") }
+ elseif msg.text:match("^/c (.*)") then
+ local matches = { string.match(msg.text, "^/c (.*)") }
  local text = '`'..matches[1]..'`'
  sendMessage(msg.chat.id, text, true, false, true)
 
- elseif msg.text:match("^/codech (.*) (.*)") then
- local matches = { string.match(msg.text, "^/codech (.*) (.*)") }
+ elseif msg.text:match("^/cch (.*) (.*)") then
+ local matches = { string.match(msg.text, "^/cch (.*) (.*)") }
  local text = '`'..matches[2]..'`'
  local channel = matches[1]
  sendMessage(channel, text, true, false, true)
